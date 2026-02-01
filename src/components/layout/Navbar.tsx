@@ -58,6 +58,13 @@ export default async function Navbar() {
                                     <DropdownMenuItem className="font-bold focus:bg-primary focus:text-primary-foreground cursor-pointer">
                                         Settings
                                     </DropdownMenuItem>
+                                    <DropdownMenuSeparator className="bg-black md:hidden" />
+                                    <DropdownMenuItem className="font-bold md:hidden focus:bg-primary focus:text-primary-foreground cursor-pointer" asChild>
+                                        <Link href="/watchlist">Watchlist</Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="font-bold md:hidden focus:bg-primary focus:text-primary-foreground cursor-pointer" asChild>
+                                        <Link href="/theatre">Theatre</Link>
+                                    </DropdownMenuItem>
                                     <DropdownMenuSeparator className="bg-black" />
                                     <LogOutButton />
                                 </DropdownMenuContent>

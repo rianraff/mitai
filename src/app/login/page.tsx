@@ -76,7 +76,7 @@ function LoginForm() {
 
             <TabsContent value="login">
                 <Card className="border-2 border-black shadow-neo bg-card rounded-xl transition-all hover:shadow-neo-xl hover:-translate-x-1 hover:-translate-y-1">
-                    <div style={{ padding: '40px' }}>
+                    <div className="p-6 md:p-10">
                         <CardHeader className="p-0 mb-6">
                             <CardTitle className="text-2xl font-black">Access your Watchlist</CardTitle>
                             <CardDescription className="text-foreground/80 font-medium">Enter your credentials to continue.</CardDescription>
@@ -120,7 +120,7 @@ function LoginForm() {
 
             <TabsContent value="signup">
                 <Card className="border-2 border-black shadow-neo bg-card rounded-xl transition-all hover:shadow-neo-xl hover:-translate-x-1 hover:-translate-y-1">
-                    <div style={{ padding: '40px' }}>
+                    <div className="p-6 md:p-10">
                         <CardHeader className="p-0 mb-6">
                             <CardTitle className="text-2xl font-black">Create an Account</CardTitle>
                             <CardDescription className="text-foreground/80 font-medium">Join Mitai to start curating.</CardDescription>

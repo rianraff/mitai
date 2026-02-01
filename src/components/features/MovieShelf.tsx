@@ -35,10 +35,10 @@ export function MovieShelf({ title, movies, iconType, iconColor }: MovieShelfPro
 
     return (
         <section className="space-y-6">
-            <div className="flex items-center justify-between border-b-8 border-black pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-8 border-black pb-4 gap-4">
                 <div className="flex items-center gap-3">
                     <Icon className={`w-8 h-8 ${iconColor}`} />
-                    <h2 className="text-4xl font-black uppercase tracking-tighter">{title}</h2>
+                    <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter">{title}</h2>
                 </div>
 
                 <div className="flex gap-2">
