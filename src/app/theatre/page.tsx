@@ -92,7 +92,7 @@ export default async function TheatrePage({ searchParams }: { searchParams: Prom
             <JoinHandler code={joinCode} />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                 <div>
-                    <h1 className="text-5xl font-black uppercase tracking-tighter mb-2">Theatre</h1>
+                    <h1 className="text-5xl font-black uppercase tracking-tighter mb-2">Theater</h1>
                     <p className="text-xl font-bold opacity-70">Watch together with friends.</p>
                 </div>
                 <div className="flex gap-3 w-full md:w-auto">

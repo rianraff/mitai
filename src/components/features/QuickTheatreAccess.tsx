@@ -29,7 +29,7 @@ export function QuickTheatreAccess({ theatres }: QuickTheatreAccessProps) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-8 border-black pb-4 gap-4">
                 <div className="flex items-center gap-3">
                     <DoorOpen className="w-8 h-8 text-primary" />
-                    <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter text-foreground">Your Theatres</h2>
+                    <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter text-foreground">Your Theaters</h2>
                 </div>
                 <Button variant="link" className="font-black uppercase text-lg underline decoration-4 underline-offset-4" asChild>
                     <Link href="/theatre">View All</Link>

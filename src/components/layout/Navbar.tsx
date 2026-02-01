@@ -35,7 +35,7 @@ export default async function Navbar() {
                                 Watchlist
                             </Link>
                             <Link href="/theatre" className="hidden md:block font-bold text-primary-foreground hover:underline underline-offset-4 decoration-2">
-                                Theatre
+                                Theater
                             </Link>
 
                             <DropdownMenu>

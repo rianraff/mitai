@@ -50,7 +50,7 @@ export function CreateTheatreDialog({ trigger, className }: { trigger?: React.Re
             <DialogTrigger asChild>
                 {trigger || (
                     <Button variant="secondary" size="lg" className={className}>
-                        <Plus className="mr-2 h-6 w-6" /> Create Theatre
+                        <Plus className="mr-2 h-6 w-6" /> Create Theater
                     </Button>
                 )}
             </DialogTrigger>
