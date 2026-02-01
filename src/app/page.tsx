@@ -95,15 +95,18 @@ async function LoggedInView() {
       {/* Header & Search */}
       <div className="flex flex-col xl:flex-row gap-4 items-start xl:items-end justify-between border-b-8 border-black pb-4">
         <div className="flex flex-col items-start gap-0.5">
+          <div className="bg-secondary text-secondary-foreground font-black text-[10px] px-2 py-0.5 border-2 border-black rotate-[-2deg] shadow-neo-sm mb-1">
+            WELCOME BACK
+          </div>
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
             {(profile?.username || user.email?.split('@')[0])?.split(' ')[0]}
           </h1>
         </div>
 
         <div className="flex flex-col md:flex-row gap-3 w-full xl:w-auto items-stretch md:items-end">
-          <div className="flex gap-4">
-            <JoinTheatreDialog />
-            <CreateTheatreDialog />
+          <div className="flex gap-4 w-full md:w-auto">
+            <JoinTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-sm sm:text-base px-2 sm:px-8" />
+            <CreateTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-sm sm:text-base px-2 sm:px-8" />
           </div>
         </div>
       </div>

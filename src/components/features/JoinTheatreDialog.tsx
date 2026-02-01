@@ -18,7 +18,7 @@ import { DoorOpen, Loader2 } from "lucide-react"
 import { joinTheatre } from "@/app/theatre/actions"
 import { toast } from "sonner"
 
-export function JoinTheatreDialog() {
+export function JoinTheatreDialog({ className }: { className?: string }) {
     const [open, setOpen] = React.useState(false)
     const [loading, setLoading] = React.useState(false)
     const [code, setCode] = React.useState("")
@@ -46,7 +46,7 @@ export function JoinTheatreDialog() {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className={className}>
                     <DoorOpen className="mr-2 h-6 w-6" /> Join Room
                 </Button>
             </DialogTrigger>

@@ -134,7 +134,7 @@ export function MovieBillboard({ movies, initialWatchlistIds = [] }: MovieBillbo
                             <span className="bg-primary text-black font-black uppercase tracking-widest text-sm px-3 py-1 border-2 border-black inline-block mb-4">
                                 Trending Now
                             </span>
-                            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)]">
+                            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)]">
                                 {movie.title}
                             </h1>
                         </motion.div>
@@ -181,7 +181,7 @@ export function MovieBillboard({ movies, initialWatchlistIds = [] }: MovieBillbo
             </AnimatePresence>
 
             {/* Pagination Controls */}
-            <div className="absolute right-8 bottom-8 flex gap-2 z-20">
+            <div className="absolute right-8 top-8 md:top-auto md:bottom-8 flex gap-2 z-20">
                 <Button
                     onClick={prev}
                     size="icon"

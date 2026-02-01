@@ -19,7 +19,7 @@ import { Plus, Loader2 } from "lucide-react"
 import { createTheatre } from "@/app/theatre/actions"
 import { toast } from "sonner"
 
-export function CreateTheatreDialog({ trigger }: { trigger?: React.ReactNode }) {
+export function CreateTheatreDialog({ trigger, className }: { trigger?: React.ReactNode, className?: string }) {
     const [open, setOpen] = React.useState(false)
     const [loading, setLoading] = React.useState(false)
     const [name, setName] = React.useState("")
@@ -49,7 +49,7 @@ export function CreateTheatreDialog({ trigger }: { trigger?: React.ReactNode }) 
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 {trigger || (
-                    <Button variant="secondary" size="lg">
+                    <Button variant="secondary" size="lg" className={className}>
                         <Plus className="mr-2 h-6 w-6" /> Create Theatre
                     </Button>
                 )}
