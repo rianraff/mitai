@@ -47,12 +47,12 @@ export function JoinTheatreDialog({ className }: { className?: string }) {
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button variant="outline" size="lg" className={className}>
-                    <DoorOpen className="mr-2 h-6 w-6" /> Join Room
+                    <DoorOpen className="mr-1 h-4 w-4 sm:mr-2 sm:h-6 sm:w-6" /> Join Theater
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] border-4 border-black shadow-neo rounded-none bg-white p-8">
                 <DialogHeader>
-                    <DialogTitle className="text-3xl font-black uppercase tracking-tighter">Join Room</DialogTitle>
+                    <DialogTitle className="text-3xl font-black uppercase tracking-tighter">Join Theater</DialogTitle>
                     <DialogDescription className="text-black font-bold opacity-70">
                         Enter the invite code provided by your friend.
                     </DialogDescription>

@@ -149,16 +149,18 @@ export function MovieBillboard({ movies, initialWatchlistIds = [] }: MovieBillbo
                                 size="lg"
                                 onClick={handleAdd}
                                 disabled={loading || isAdded || isChecking}
-                                className={isAdded ? 'bg-secondary text-secondary-foreground cursor-default shadow-none translate-y-[4px] hover:translate-y-[4px]' : ''}
+                                className={isAdded ? 'bg-secondary text-secondary-foreground cursor-default shadow-none translate-y-[4px] hover:translate-y-[4px] px-4 sm:px-8' : 'px-4 sm:px-8'}
                             >
                                 {loading || isChecking ? (
-                                    <Loader2 className="w-6 h-6 animate-spin" />
+                                    <Loader2 className="w-4 h-4 sm:w-6 sm:h-6 animate-spin mr-2" />
                                 ) : isAdded ? (
-                                    <CheckCircle2 className="w-6 h-6" />
+                                    <CheckCircle2 className="w-4 h-4 sm:w-6 sm:h-6 mr-2" />
                                 ) : (
-                                    <Plus className="w-6 h-6" />
+                                    <Plus className="w-4 h-4 sm:w-6 sm:h-6 mr-2" />
                                 )}
-                                {isAdded ? 'ADDED TO WATCHLIST' : 'ADD TO WATCHLIST'}
+                                <span className="text-xs sm:text-base font-black tracking-widest">
+                                    {isAdded ? 'ADDED TO WATCHLIST' : 'ADD TO WATCHLIST'}
+                                </span>
                             </Button>
                         </motion.div>
                     </div>

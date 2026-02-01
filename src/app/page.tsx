@@ -105,8 +105,8 @@ async function LoggedInView() {
 
         <div className="flex flex-col md:flex-row gap-3 w-full xl:w-auto items-stretch md:items-end">
           <div className="flex gap-4 w-full md:w-auto">
-            <JoinTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-sm sm:text-base px-2 sm:px-8" />
-            <CreateTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-sm sm:text-base px-2 sm:px-8" />
+            <JoinTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-[10px] xs:text-xs sm:text-base px-1 sm:px-8" />
+            <CreateTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-[10px] xs:text-xs sm:text-base px-1 sm:px-8" />
           </div>
         </div>
       </div>
