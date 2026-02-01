@@ -21,9 +21,9 @@ export default async function WatchlistPage() {
 
     return (
         <main className="container mx-auto p-4 md:p-8">
-            <div className="flex justify-between items-center mb-8 border-b-4 border-black pb-4">
+            <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center mb-8 border-b-4 border-black pb-4 gap-4">
                 <h1 className="text-4xl font-black uppercase tracking-tighter">My Watchlist</h1>
-                <div className="w-full max-w-sm">
+                <div className="w-full md:max-w-sm">
                     <MovieSearch />
                 </div>
             </div>
