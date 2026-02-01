@@ -96,8 +96,8 @@ export default async function TheatrePage({ searchParams }: { searchParams: Prom
                     <p className="text-xl font-bold opacity-70">Watch together with friends.</p>
                 </div>
                 <div className="flex gap-3 w-full md:w-auto">
-                    <JoinTheatreDialog className="flex-1 md:flex-none w-full md:w-auto" />
-                    <CreateTheatreDialog className="flex-1 md:flex-none w-full md:w-auto" />
+                    <JoinTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-sm sm:text-base px-2 sm:px-8" />
+                    <CreateTheatreDialog className="flex-1 md:flex-none w-full md:w-auto text-sm sm:text-base px-2 sm:px-8" />
                 </div>
             </div>
 
