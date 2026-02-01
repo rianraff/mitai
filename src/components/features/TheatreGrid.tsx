@@ -60,7 +60,7 @@ export function TheatreGrid({
     const visibleSorted = getSortedVisible(optimisticMovies)
 
     return (
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-8 xl:grid-cols-10 gap-4 md:gap-6">
             {visibleSorted.map((movie) => (
                 <TheatreMovieCard
                     key={movie.id}

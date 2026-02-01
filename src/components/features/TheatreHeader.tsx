@@ -75,13 +75,6 @@ export function TheatreHeader({
                         <span>{movieCount} Movies</span>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                        <span className="text-xs font-black uppercase tracking-tighter opacity-50">Mode:</span>
-                        <span className="text-xs font-black uppercase bg-secondary text-secondary-foreground px-2 py-0.5 border-2 border-black rotate-1 shadow-neo-sm">
-                            {MERGE_MODE_DETAILS[theatre.merge_mode as keyof typeof MERGE_MODE_DETAILS].label}
-                        </span>
-                    </div>
-
                     {isHost && (
                         <div className="flex border-4 border-black shadow-neo-sm overflow-hidden rounded-none">
                             {(['intersection', 'union', 'xor'] as MergeMode[]).map((m) => (
@@ -106,10 +99,12 @@ export function TheatreHeader({
                 onClick={handleShuffle}
                 disabled={loading || mergedList.length === 0}
                 size="xl"
+                className="fixed bottom-6 right-6 z-50 rounded-full h-16 w-16 md:static md:w-auto md:h-auto md:rounded-none md:border-4 md:border-black md:shadow-neo lg:px-8 border-4 border-black shadow-neo active:translate-y-1 active:shadow-none"
             >
-                {loading ? <Loader2 className="animate-spin w-10 h-10" /> : (
+                {loading ? <Loader2 className="animate-spin w-8 h-8 md:w-10 md:h-10" /> : (
                     <>
-                        <Shuffle className="mr-4 w-8 h-8" /> Shuffle Together
+                        <Shuffle className="w-8 h-8 md:mr-4" />
+                        <span className="hidden md:inline">Shuffle</span>
                     </>
                 )}
             </Button>

@@ -52,7 +52,7 @@ export function TheatreMovieCard({
     const canRemove = movie.added_by_ids?.includes(currentUserId)
 
     return (
-        <div className="relative group col-span-2">
+        <div className="relative group col-span-1 md:col-span-2">
             <MovieCard
                 title={movie.title}
                 year={movie.year}
