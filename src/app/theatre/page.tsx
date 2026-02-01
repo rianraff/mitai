@@ -8,6 +8,7 @@ import { CreateTheatreDialog } from "@/components/features/CreateTheatreDialog"
 import { JoinTheatreDialog } from "@/components/features/JoinTheatreDialog"
 import { JoinHandler } from "@/components/features/JoinHandler"
 import { MERGE_MODE_DETAILS } from '@/lib/constants'
+import { TheatreCard } from "@/components/features/TheatreCard"
 
 export default async function TheatrePage({ searchParams }: { searchParams: Promise<{ join?: string }> }) {
     const { join } = await searchParams
@@ -104,39 +105,11 @@ export default async function TheatrePage({ searchParams }: { searchParams: Prom
             {theatresWithStats.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {theatresWithStats.map((theatre: any) => (
-                        <Card key={theatre.id} className="border-4 border-black shadow-neo hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-neo-xl transition-all flex flex-col bg-card rounded-none group">
-                            <CardHeader className="p-6 pb-0">
-                                <CardTitle className="text-5xl font-black uppercase tracking-tighter text-black leading-none break-words mb-4 group-hover:text-primary transition-colors">
-                                    {theatre.name}
-                                </CardTitle>
-                            </CardHeader>
-
-                            <CardContent className="p-6 space-y-6 flex-grow">
-
-                                {/* Progress Section */}
-                                <div className="space-y-2">
-                                    <div className="flex justify-between items-end">
-                                        <span className="text-[10px] font-black uppercase tracking-widest opacity-60">Completion</span>
-                                        <span className="text-xl font-black">{theatre.progress}%</span>
-                                    </div>
-                                    <div className="h-4 w-full bg-black/10 border-2 border-black overflow-hidden shadow-neo-sm">
-                                        <div
-                                            className="h-full bg-secondary border-r-2 border-black transition-all duration-1000"
-                                            style={{ width: `${theatre.progress}%` }}
-                                        />
-                                    </div>
-                                    <p className="text-[10px] font-bold italic opacity-60">
-                                        {theatre.watchedMovies} of {theatre.totalMovies} missions accomplished
-                                    </p>
-                                </div>
-
-                                <Button asChild size="lg" className="w-full">
-                                    <Link href={`/theatre/${theatre.invite_code}`}>
-                                        ENTER ROOM <ArrowRight className="ml-2 w-6 h-6" />
-                                    </Link>
-                                </Button>
-                            </CardContent>
-                        </Card>
+                        <TheatreCard
+                            key={theatre.id}
+                            theatre={theatre}
+                            currentUserId={user.id}
+                        />
                     ))}
                 </div>
             ) : (

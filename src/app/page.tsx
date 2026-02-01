@@ -31,7 +31,8 @@ async function LoggedInView() {
             id,
             name,
             invite_code,
-            merge_mode
+            merge_mode,
+            host_id
         )
     `)
     .eq('user_id', user.id)
@@ -114,7 +115,7 @@ async function LoggedInView() {
       <MovieBillboard movies={trending} initialWatchlistIds={watchlistIds} />
 
       {theatresWithStats.length > 0 && (
-        <QuickTheatreAccess theatres={theatresWithStats} />
+        <QuickTheatreAccess theatres={theatresWithStats} currentUserId={user.id} />
       )}
 
       <MovieShelf

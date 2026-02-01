@@ -108,3 +108,92 @@ export async function pickRandomMovie(theatreId: string, imdbIds: string[]) {
     revalidatePath(`/theatre/[inviteCode]`, 'page')
     return { success: true, pickedId }
 }
+
+export async function leaveTheatre(theatreId: string) {
+    const supabase = await createClient()
+    if (!supabase) throw new Error("Supabase client not available")
+
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+        throw new Error("Unauthorized")
+    }
+
+    // Check if user is the host
+    const { data: theatre, error: theatreError } = await supabase
+        .from('theatres')
+        .select('host_id')
+        .eq('id', theatreId)
+        .single()
+
+    if (theatreError) {
+        throw new Error(theatreError.message)
+    }
+
+    if (theatre && theatre.host_id === user.id) {
+        throw new Error("Hosts cannot leave their own theatre. You must delete it.")
+    }
+
+    const { error } = await supabase
+        .from('theatre_sessions')
+        .delete()
+        .match({ theatre_id: theatreId, user_id: user.id })
+
+    if (error) {
+        throw new Error(error.message)
+    }
+
+    revalidatePath('/theatre')
+    revalidatePath('/')
+}
+
+export async function deleteTheatre(theatreId: string) {
+    const supabase = await createClient()
+    if (!supabase) throw new Error("Supabase client not available")
+
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+        throw new Error("Unauthorized")
+    }
+
+    // Verify ownership
+    const { data: theatre, error: theatreError } = await supabase
+        .from('theatres')
+        .select('host_id')
+        .eq('id', theatreId)
+        .single()
+
+    if (theatreError || !theatre) {
+        throw new Error("Theatre not found")
+    }
+
+    if (theatre.host_id !== user.id) {
+        throw new Error("Only the host can delete the theatre")
+    }
+
+    // Delete all sessions first (requires RLS policy update to allow host to delete others' sessions)
+    const { error: sessionsError } = await supabase
+        .from('theatre_sessions')
+        .delete()
+        .eq('theatre_id', theatreId)
+
+    if (sessionsError) {
+        // If this fails, it might be because RLS prevents deleting others' sessions.
+        // We proceed to try deleting the theatre anyway, in case ON DELETE CASCADE is set up.
+        console.error("Failed to delete sessions:", sessionsError)
+    }
+
+    // Delete theatre
+    const { error } = await supabase
+        .from('theatres')
+        .delete()
+        .eq('id', theatreId)
+
+    if (error) {
+        throw new Error(error.message)
+    }
+
+    revalidatePath('/theatre')
+    revalidatePath('/')
+}
