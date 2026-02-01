@@ -95,9 +95,6 @@ async function LoggedInView() {
       {/* Header & Search */}
       <div className="flex flex-col xl:flex-row gap-4 items-start xl:items-end justify-between border-b-8 border-black pb-4">
         <div className="flex flex-col items-start gap-0.5">
-          <div className="bg-secondary text-secondary-foreground font-black text-[10px] px-2 py-0.5 border-2 border-black rotate-[-2deg] shadow-neo-sm mb-1">
-            WELCOME BACK
-          </div>
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
             {(profile?.username || user.email?.split('@')[0])?.split(' ')[0]}
           </h1>
@@ -145,10 +142,10 @@ function HeroView() {
 
         <div className="flex gap-4 mt-4">
           <Button size="lg" className="border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all bg-primary text-primary-foreground font-bold text-lg h-14 px-8" asChild>
-            <Link href="/login">Get Started</Link>
+            <Link href="/login?tab=signup">Get Started</Link>
           </Button>
           <Button size="lg" variant="secondary" className="border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all font-bold text-lg h-14 px-8" asChild>
-            <Link href="/login">Login</Link>
+            <Link href="/login?tab=login">Login</Link>
           </Button>
         </div>
       </section>
@@ -159,8 +156,8 @@ function HeroView() {
           <div className="w-16 h-16 bg-secondary text-secondary-foreground flex items-center justify-center border-4 border-black shadow-neo-sm -rotate-2">
             <Film className="w-8 h-8" />
           </div>
-          <CardTitle className="text-3xl font-black uppercase tracking-tighter">Curate</CardTitle>
-          <p className="font-bold text-lg opacity-80">Dump your IMDb links. We'll keep them safe and ready for your next binge.</p>
+          <CardTitle className="text-3xl font-black uppercase tracking-tighter">Watchlist</CardTitle>
+          <p className="font-bold text-lg opacity-80">Dump your movie name. We'll keep them safe and ready for your next binge.</p>
         </Card>
 
         <Card className="bg-[#b48e43] text-black border-4 border-black shadow-neo hover:-translate-y-1 transition-transform p-8 flex flex-col items-center gap-4 rounded-none">

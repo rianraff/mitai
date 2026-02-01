@@ -15,12 +15,14 @@ export async function GET(request: Request) {
                 const forwardedHost = request.headers.get('x-forwarded-host')
                 const isLocalEnv = process.env.NODE_ENV === 'development'
 
+                const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || origin
+
                 if (isLocalEnv) {
-                    return NextResponse.redirect(`${origin}${next}`)
+                    return NextResponse.redirect(`${baseUrl}${next}`)
                 } else if (forwardedHost) {
                     return NextResponse.redirect(`https://${forwardedHost}${next}`)
                 } else {
-                    return NextResponse.redirect(`${origin}${next}`)
+                    return NextResponse.redirect(`${baseUrl}${next}`)
                 }
             }
         }

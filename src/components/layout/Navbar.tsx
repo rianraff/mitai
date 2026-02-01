@@ -10,7 +10,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { signOut } from "@/app/auth/signout"
+import { LogOutButton } from "./LogOutButton"
 
 export default async function Navbar() {
     const supabase = await createClient()
@@ -59,13 +59,7 @@ export default async function Navbar() {
                                         Settings
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator className="bg-black" />
-                                    <form action={signOut}>
-                                        <button type="submit" className="w-full text-left">
-                                            <DropdownMenuItem className="font-bold text-red-600 focus:bg-red-600 focus:text-white cursor-pointer w-full">
-                                                Log out
-                                            </DropdownMenuItem>
-                                        </button>
-                                    </form>
+                                    <LogOutButton />
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </>

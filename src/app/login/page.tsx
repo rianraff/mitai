@@ -157,9 +157,6 @@ export default function LoginPage() {
     return (
         <main className="min-h-screen flex items-center justify-center p-4 bg-background">
             <div className="w-full max-w-md animate-in fade-in zoom-in duration-500">
-                <div className="mb-8 text-center">
-                    <h1 className="text-4xl font-black uppercase tracking-tighter text-foreground text-stroke">Welcome Back</h1>
-                </div>
                 <Suspense fallback={<div>Loading...</div>}>
                     <LoginForm />
                 </Suspense>
