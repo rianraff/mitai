@@ -23,14 +23,14 @@ export function TheatreGrid({
                 if (a.imdb_id === theatre.last_picked_imdb_id) return -1
                 if (b.imdb_id === theatre.last_picked_imdb_id) return 1
 
+                // Unwatched before watched
+                if (!a.watched && b.watched) return -1
+                if (a.watched && !b.watched) return 1
+
                 // Latest added first
                 const dateA = new Date(a.created_at || 0).getTime()
                 const dateB = new Date(b.created_at || 0).getTime()
                 if (dateA !== dateB) return dateB - dateA
-
-                // Unwatched before watched
-                if (!a.watched && b.watched) return -1
-                if (a.watched && !b.watched) return 1
 
                 return 0
             })

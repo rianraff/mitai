@@ -30,10 +30,15 @@ export function TheatreHeader({
     }
 
     const handleShuffle = async () => {
-        if (mergedList.length === 0) return
+        // Filter out watched movies locally first to avoid unnecessary requests if all are watched (though server also handles it)
+        const unwatchedMovies = mergedList.filter(m => !m.watched)
+        if (unwatchedMovies.length === 0) {
+            toast.error("No unwatched movies to shuffle!")
+            return
+        }
         setLoading(true)
         try {
-            const imdbIds = mergedList.map(m => m.imdb_id)
+            const imdbIds = unwatchedMovies.map(m => m.imdb_id)
             const res = await pickRandomMovie(theatre.id, imdbIds)
             if (res.success) {
                 toast.success("Shuffle complete!")
@@ -99,7 +104,7 @@ export function TheatreHeader({
                 onClick={handleShuffle}
                 disabled={loading || mergedList.length === 0}
                 size="xl"
-                className="fixed bottom-6 right-6 z-50 rounded-full h-16 w-16 md:static md:w-auto md:h-auto md:rounded-none md:border-4 md:border-black md:shadow-neo lg:px-8 border-4 border-black shadow-neo active:translate-y-1 active:shadow-none"
+                className="fixed bottom-6 right-6 z-50 rounded-none h-16 w-16 md:static md:w-auto md:h-auto md:rounded-none md:border-4 md:border-black md:shadow-neo lg:px-8 border-4 border-black shadow-neo active:translate-y-1 active:shadow-none"
             >
                 {loading ? <Loader2 className="animate-spin w-8 h-8 md:w-10 md:h-10" /> : (
                     <>
